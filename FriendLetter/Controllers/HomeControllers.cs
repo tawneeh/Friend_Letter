@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using FriendLetter.Models;
 
 namespace FriendLetter.Controllers
 {
@@ -12,7 +13,12 @@ namespace FriendLetter.Controllers
     public string Goodbye() { return "Goodbye friend."; }
 
     [Route("/")] // rooth path or home page. always needed
-    public ActionResult Letter() { return View(); } // this method must be named 'Letter()' for the View() method to find the correct content to show - Letter.cshtml 
-
+    public ActionResult Letter() // this method must be named 'Letter()' for the View() method to find the correct content to show - Letter.cshtml 
+    {
+      LetterVariable myLetterVariable = new LetterVariable();
+      myLetterVariable.Recipient = "Emma";
+      myLetterVariable.Sender = "Tawnee";
+      return View(myLetterVariable);
+    }
   }
 }
