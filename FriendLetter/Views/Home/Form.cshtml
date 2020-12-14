@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Create a Custom Postcard!</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  </head>
+  <body>
+    <h1>Fill in your name and your friend's name to create your custom postcard!</h1>
+    <form action="/postcard" method="post"> <!-- form action="/postcard" tells the framework where to submit info provided through this form --> 
+      <label for="sender">Sender's Name</label>
+      <input id="sender" name="sender" type="text"> <!-- generally want id and name to be the same -->
+      <label for="recipient">Recipient's Name</label> <!-- for="" needs to match the input id -->
+      <input id="recipient" name="recipient" type="text">
+      <button type="submit">Go!</button> <!-- must be a submit type button for this form -->
+    </form>
+  </body>
+</html>
