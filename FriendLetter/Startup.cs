@@ -36,6 +36,8 @@ namespace FriendLetter
       {
         await context.Response.WriteAsync("Hello World!");
       });
+
+      app.UseDeveloperExceptionPage(); // produces error report when Razor fails to load
     }
 
   }
