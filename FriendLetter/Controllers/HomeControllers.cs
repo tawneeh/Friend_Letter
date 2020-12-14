@@ -12,8 +12,20 @@ namespace FriendLetter.Controllers
     [Route("/goodbye")]
     public string Goodbye() { return "Goodbye friend."; }
 
-    [Route("/")] // rooth path or home page. always needed
-    public ActionResult Letter() // this method must be named 'Letter()' for the View() method to find the correct content to show - Letter.cshtml 
+    [Route("/form")]
+    public ActionResult Form() { return View(); }
+
+    [Route("/postcard")]
+    public ActionResult Postcard(string recipient, string sender) // these link to the inputs named in Postcard.cshtml - name="sender" and name="recipient" 
+    {
+      LetterVariable myLetterVariable = new LetterVariable();
+      myLetterVariable.Recipient = recipient;
+      myLetterVariable.Sender = sender;
+      return View(myLetterVariable);
+    }
+
+    [Route("/")] // root path or home page. always needed
+    public ActionResult Letter() // this method must be named 'Letter()' for the View() method to find the correct content to show - Letter.cshtml. same for Postcard() and Form() etc. 
     {
       LetterVariable myLetterVariable = new LetterVariable();
       myLetterVariable.Recipient = "Emma";
